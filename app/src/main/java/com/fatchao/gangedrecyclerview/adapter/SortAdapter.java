@@ -12,6 +12,9 @@ import com.fatchao.gangedrecyclerview.other.RvListener;
 
 import java.util.List;
 
+/**
+ * 左边分类列表
+ */
 public class SortAdapter extends RvAdapter<String> {
 
     private int checkedPosition;

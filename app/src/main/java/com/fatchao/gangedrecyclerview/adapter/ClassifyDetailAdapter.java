@@ -4,15 +4,11 @@ import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-
 import com.fatchao.gangedrecyclerview.R;
 import com.fatchao.gangedrecyclerview.other.RvHolder;
 import com.fatchao.gangedrecyclerview.other.RvListener;
 import com.fatchao.gangedrecyclerview.bean.SortBean;
-
 import java.util.List;
-
 
 public class ClassifyDetailAdapter extends RvAdapter<SortBean> {
 
@@ -20,7 +16,9 @@ public class ClassifyDetailAdapter extends RvAdapter<SortBean> {
         super(context, list, listener);
     }
 
-
+    /**
+     *  getLayoutId 是自己写的
+     */
     @Override
     protected int getLayoutId(int viewType) {
         return viewType == 0 ? R.layout.item_title : R.layout.item_classify_detail;
@@ -36,12 +34,12 @@ public class ClassifyDetailAdapter extends RvAdapter<SortBean> {
         return new ClassifyHolder(view, viewType, listener);
     }
 
-    public class ClassifyHolder extends RvHolder<SortBean> {
+    private class ClassifyHolder extends RvHolder<SortBean> {
         TextView tvCity;
         ImageView avatar;
         TextView tvTitle;
 
-        public ClassifyHolder(View itemView, int type, RvListener listener) {
+        private ClassifyHolder(View itemView, int type, RvListener listener) {
             super(itemView, type, listener);
             switch (type) {
                 case 0:
@@ -52,7 +50,6 @@ public class ClassifyDetailAdapter extends RvAdapter<SortBean> {
                     avatar = (ImageView) itemView.findViewById(R.id.ivAvatar);
                     break;
             }
-
         }
 
         @Override
@@ -64,10 +61,8 @@ public class ClassifyDetailAdapter extends RvAdapter<SortBean> {
                     break;
                 case 1:
                     tvCity.setText(sortBean.getName());
-//                    avatar.setImageResource(R.mipmap.ic_launcher);
                     break;
             }
-
         }
     }
 }

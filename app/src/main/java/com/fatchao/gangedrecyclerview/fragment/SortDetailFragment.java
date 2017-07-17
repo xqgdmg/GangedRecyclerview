@@ -19,6 +19,9 @@ import com.fatchao.gangedrecyclerview.presenter.SortDetailPresenter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 右边部分
+ */
 public class SortDetailFragment extends BaseFragment<SortDetailPresenter, String> implements CheckListener {
     private RecyclerView mRv;
     private ClassifyDetailAdapter mAdapter;

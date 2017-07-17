@@ -20,7 +20,6 @@ import com.fatchao.gangedrecyclerview.other.ViewCallBack;
  * created on 2017/5/20
  * email fat_chao@163.com.
  */
-
 public abstract class BaseFragment<T extends BasePresenter, V> extends Fragment implements View.OnClickListener, ViewCallBack<V> {
     public T presenter;
     protected boolean isVisible;
@@ -75,7 +74,6 @@ public abstract class BaseFragment<T extends BasePresenter, V> extends Fragment 
             @Override
             public ViewGroup initNormalView() {
                 return initViewGroup(inflater, parent);
-
             }
 
             @Override
@@ -88,7 +86,6 @@ public abstract class BaseFragment<T extends BasePresenter, V> extends Fragment 
         };
         return mFlexibleLayout;
     }
-
 
     private ViewGroup initViewGroup(LayoutInflater inflater, ViewGroup parent) {
         ViewGroup view = (ViewGroup) inflater.inflate(getLayoutId(), parent, false);
@@ -117,7 +114,6 @@ public abstract class BaseFragment<T extends BasePresenter, V> extends Fragment 
     public void onDestroy() {
         super.onDestroy();
         presenter.remove();
-
     }
 
     protected abstract int getLayoutId();
@@ -129,8 +125,6 @@ public abstract class BaseFragment<T extends BasePresenter, V> extends Fragment 
     protected abstract T initPresenter();//初始化数据以及请求参数
 
     protected abstract void getData();
-
-
 
     @Override
     public void onDestroyView() {
