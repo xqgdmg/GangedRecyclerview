@@ -34,7 +34,6 @@ public class SortDetailFragment extends BaseFragment<SortDetailPresenter, String
 
     @Override
     protected void getData() {
-
     }
 
     @Override
@@ -45,7 +44,6 @@ public class SortDetailFragment extends BaseFragment<SortDetailPresenter, String
     @Override
     protected void initCustomView(View view) {
         mRv = (RecyclerView) view.findViewById(R.id.rv);
-
     }
 
     @Override
@@ -150,13 +148,10 @@ public class SortDetailFragment extends BaseFragment<SortDetailPresenter, String
         }
     }
 
-
     @Override
     public void check(int position, boolean isScroll) {
         checkListener.check(position, isScroll);
-
     }
-
 
     private class RecyclerViewListener extends RecyclerView.OnScrollListener {
         @Override
@@ -187,6 +182,5 @@ public class SortDetailFragment extends BaseFragment<SortDetailPresenter, String
             }
         }
     }
-
 
 }
