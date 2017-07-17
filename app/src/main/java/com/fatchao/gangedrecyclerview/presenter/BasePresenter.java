@@ -1,14 +1,16 @@
-package com.fatchao.gangedrecyclerview;
+package com.fatchao.gangedrecyclerview.presenter;
+
+import com.fatchao.gangedrecyclerview.other.ViewCallBack;
 
 public abstract class BasePresenter {
 
     protected ViewCallBack mViewCallBack;
 
-    void add(ViewCallBack viewCallBack) {
+    public void add(ViewCallBack viewCallBack) {
         this.mViewCallBack = viewCallBack;
     }
 
-    void remove() {
+    public void remove() {
         this.mViewCallBack = null;
     }
 

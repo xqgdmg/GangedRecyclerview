@@ -1,4 +1,4 @@
-package com.fatchao.gangedrecyclerview;
+package com.fatchao.gangedrecyclerview.other;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -15,6 +15,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.fatchao.gangedrecyclerview.R;
+import com.fatchao.gangedrecyclerview.bean.SortBean;
+
 import java.util.List;
 
 
@@ -26,11 +29,11 @@ public class ItemHeaderDecoration extends RecyclerView.ItemDecoration {
 
     public static String currentTag = "0";
 
-    void setCheckListener(CheckListener checkListener) {
+    public void setCheckListener(CheckListener checkListener) {
         mCheckListener = checkListener;
     }
 
-    ItemHeaderDecoration(Context context, List<SortBean> datas) {
+    public ItemHeaderDecoration(Context context, List<SortBean> datas) {
         super();
         this.mDatas = datas;
         Paint paint = new Paint();

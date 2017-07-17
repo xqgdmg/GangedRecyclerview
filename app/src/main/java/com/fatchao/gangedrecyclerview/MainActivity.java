@@ -10,6 +10,12 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
+import com.fatchao.gangedrecyclerview.adapter.SortAdapter;
+import com.fatchao.gangedrecyclerview.fragment.SortDetailFragment;
+import com.fatchao.gangedrecyclerview.other.CheckListener;
+import com.fatchao.gangedrecyclerview.other.ItemHeaderDecoration;
+import com.fatchao.gangedrecyclerview.other.RvListener;
+
 import java.util.Arrays;
 import java.util.List;
 

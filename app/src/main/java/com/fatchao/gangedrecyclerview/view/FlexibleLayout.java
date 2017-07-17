@@ -1,4 +1,4 @@
-package com.fatchao.gangedrecyclerview;
+package com.fatchao.gangedrecyclerview.view;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -9,6 +9,8 @@ import android.view.ViewStub;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.fatchao.gangedrecyclerview.R;
 
 
 /**

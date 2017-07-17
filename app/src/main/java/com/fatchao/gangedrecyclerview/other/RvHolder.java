@@ -1,4 +1,4 @@
-package com.fatchao.gangedrecyclerview;
+package com.fatchao.gangedrecyclerview.other;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

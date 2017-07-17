@@ -1,10 +1,15 @@
-package com.fatchao.gangedrecyclerview;
+package com.fatchao.gangedrecyclerview.adapter;
 
 import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
+import com.fatchao.gangedrecyclerview.R;
+import com.fatchao.gangedrecyclerview.other.RvHolder;
+import com.fatchao.gangedrecyclerview.other.RvListener;
+import com.fatchao.gangedrecyclerview.bean.SortBean;
 
 import java.util.List;
 

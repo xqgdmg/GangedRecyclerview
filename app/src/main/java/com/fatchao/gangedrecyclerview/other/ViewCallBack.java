@@ -1,4 +1,4 @@
-package com.fatchao.gangedrecyclerview;
+package com.fatchao.gangedrecyclerview.other;
 
 /**
  *

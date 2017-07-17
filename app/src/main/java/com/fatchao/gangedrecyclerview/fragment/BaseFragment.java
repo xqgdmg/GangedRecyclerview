@@ -1,4 +1,4 @@
-package com.fatchao.gangedrecyclerview;
+package com.fatchao.gangedrecyclerview.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,6 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.fatchao.gangedrecyclerview.presenter.BasePresenter;
+import com.fatchao.gangedrecyclerview.view.FlexibleLayout;
+import com.fatchao.gangedrecyclerview.R;
+import com.fatchao.gangedrecyclerview.other.ViewCallBack;
 
 /**
  * author pangchao
