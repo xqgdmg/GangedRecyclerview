@@ -17,6 +17,8 @@ import com.fatchao.gangedrecyclerview.R;
  * author pangchao
  * created on 2017/5/20
  * email fat_chao@163.com.
+ *
+ * 处理 加载中，空视图，加载错误的视图
  */
 
 public abstract class FlexibleLayout extends LinearLayout {
@@ -34,13 +36,13 @@ public abstract class FlexibleLayout extends LinearLayout {
         setOrientation(VERTICAL);
         setClipToPadding(true);
         setFitsSystemWindows(true);
-        inflate(context, R.layout.layout_all, this);
+        inflate(context, R.layout.layout_all, this);// 都是不可见的 ViewStub
         mSuccessView = initNormalView();
         title = mSuccessView.findViewWithTag("title");
         LayoutParams lp = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         addView(mSuccessView, lp);
         int childCount = mSuccessView.getChildCount();
-        Log.d("count---", String.valueOf(childCount));
+        Log.e("count---", String.valueOf(childCount));
     }
 
     public abstract ViewGroup initNormalView();
@@ -56,7 +58,7 @@ public abstract class FlexibleLayout extends LinearLayout {
         if (status != State.Normal && title != null) {
             String tag = (String) getChildAt(0).getTag();
             if (TextUtils.equals(tag, "title")) {
-                //已经有标题栏
+                //已经有标题栏，就不用添加了
             } else {
                 mSuccessView.removeView(title);
                 addView(title, 0);
@@ -67,7 +69,7 @@ public abstract class FlexibleLayout extends LinearLayout {
             case Normal:
                 mSuccessView.setVisibility(VISIBLE);
                 int childCount = getChildCount();
-                Log.d("count--->", String.valueOf(childCount));
+                Log.e("count--->", String.valueOf(childCount));
                 View childAt = mSuccessView.getChildAt(0);//有可能为空
                 if (childAt != null) {
                     String tag = (String) childAt.getTag();

@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements CheckListener {
     }
 
     private void initData() {
-        String[] classify = getResources().getStringArray(R.array.pill);
+        String[] classify = getResources().getStringArray(R.array.pill);// 分类名
         List<String> list = Arrays.asList(classify);
         mSortAdapter = new SortAdapter(mContext, list, new RvListener() {
             @Override
@@ -52,11 +52,11 @@ public class MainActivity extends AppCompatActivity implements CheckListener {
                 if (mSortDetailFragment != null) {
                     isMoved = true;
                     targetPosition = position;
-                    setChecked(position, true);
+                    setChecked(position, true);// 点击条目，检查
                 }
             }
         });
-        rvSort.setAdapter(mSortAdapter);
+        rvSort.setAdapter(mSortAdapter);// RecyclerView 是分类的名字
         createFragment();
     }
 
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements CheckListener {
     }
 
     private void setChecked(int position, boolean isLeft) {
-        Log.d("p-------->", String.valueOf(position));
+        Log.e("chris", "position==" + String.valueOf(position));
         if (isLeft) {
             //此处的位置需要根据每个分类的集合来进行计算
             mSortAdapter.setCheckedPosition(position);
@@ -80,10 +80,8 @@ public class MainActivity extends AppCompatActivity implements CheckListener {
                 isMoved = false;
             } else
                 mSortAdapter.setCheckedPosition(position);
-
         }
         moveToCenter(position);
-
     }
 
     //将当前选中的item居中
