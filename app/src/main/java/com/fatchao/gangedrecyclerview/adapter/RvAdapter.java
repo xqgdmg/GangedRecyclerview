@@ -26,14 +26,18 @@ public abstract class RvAdapter<T> extends RecyclerView.Adapter<RvHolder> {
         this.listener = listener;
     }
 
+    /**
+     * onCreateViewHolder 子类以后都不用写了
+     */
     @Override
     public RvHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = mInflater.inflate(getLayoutId(viewType), parent, false);
         return getHolder(view, viewType);
     }
 
-    protected abstract int getLayoutId(int viewType);
-
+    /**
+     * onBindViewHolder 子类以后都不用写了
+     */
     @Override
     public void onBindViewHolder(RvHolder holder, int position) {
         holder.bindHolder(list.get(position), position);
@@ -44,11 +48,18 @@ public abstract class RvAdapter<T> extends RecyclerView.Adapter<RvHolder> {
         return list.size();
     }
 
+    /**
+     * 固定返回 0
+     */
     @Override
     public int getItemViewType(int position) {
         return 0;
     }
 
-    protected abstract RvHolder getHolder(View view, int viewType);
+    // ----------------------------------以下子类需要重写的方法----------------------------------//
+
+    protected abstract int getLayoutId(int viewType);// 布局
+
+    protected abstract RvHolder getHolder(View view, int viewType);// Holder
 
 }

@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements CheckListener {
     public void createFragment() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         mSortDetailFragment = new SortDetailFragment();
-        mSortDetailFragment.setListener(this);
+        mSortDetailFragment.setListener(this);// 设置选中的监听
         fragmentTransaction.add(R.id.lin_fragment, mSortDetailFragment);
         fragmentTransaction.commit();
     }
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements CheckListener {
         if (isLeft) {
             //此处的位置需要根据每个分类的集合来进行计算
             mSortAdapter.setCheckedPosition(position);
-            mSortDetailFragment.setData(position * 10 + position);
+            mSortDetailFragment.setData(position * 10 + position);// Fragment 移动条目的位置
         } else {
             ItemHeaderDecoration.setCurrentTag(String.valueOf(targetPosition));
             if (isMoved) {
@@ -99,13 +99,13 @@ public class MainActivity extends AppCompatActivity implements CheckListener {
         rvSort.setLayoutManager(mLinearLayoutManager);
         DividerItemDecoration decoration = new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL);
         rvSort.addItemDecoration(decoration);
-
     }
 
-
+    /**
+     * 监听选中的位置（左边和右边）
+     */
     @Override
     public void check(int position, boolean isScroll) {
         setChecked(position, isScroll);
-
     }
 }

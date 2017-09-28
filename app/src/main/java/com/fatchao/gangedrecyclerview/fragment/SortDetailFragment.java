@@ -90,9 +90,9 @@ public class SortDetailFragment extends BaseFragment<SortDetailPresenter, String
         });
 
         mRv.setAdapter(mAdapter);
-        mDecoration = new ItemHeaderDecoration(mContext, mDatas);
+        mDecoration = new ItemHeaderDecoration(mContext, mDatas);// 带头部的分割线
         mRv.addItemDecoration(mDecoration);
-        mDecoration.setCheckListener(checkListener);
+        mDecoration.setCheckListener(checkListener);// 选中状态
         initData(mContext.getResources().getStringArray(R.array.pill));// 0-14 个分组 ， 每个分组都有 10个条目
         return new SortDetailPresenter();
     }
@@ -111,7 +111,7 @@ public class SortDetailFragment extends BaseFragment<SortDetailPresenter, String
 
         }
         mAdapter.notifyDataSetChanged();
-        mDecoration.setData(mDatas);// addItemDecoration
+        mDecoration.setData(mDatas);// addItemDecoration，分割线也是有数据的！
     }
 
     @Override
@@ -124,12 +124,18 @@ public class SortDetailFragment extends BaseFragment<SortDetailPresenter, String
 
     }
 
+    /**
+     * Fragment 移动条目的位置，Activity 调用
+     */
     public void setData(int n) {
         mIndex = n;
         mRv.stopScroll();
-        smoothMoveToPosition(n);
+        smoothMoveToPosition(n);// 移动到合适的位置
     }
 
+    /**
+     * 监听选中的位置（左边和右边）
+     */
     public void setListener(CheckListener listener) {
         this.checkListener = listener;
     }
@@ -139,15 +145,15 @@ public class SortDetailFragment extends BaseFragment<SortDetailPresenter, String
         int lastItem = mManager.findLastVisibleItemPosition();
         Log.e("chris", "first--->" + String.valueOf(firstItem));
         Log.e("chris", "last--->" + String.valueOf(lastItem));
-        if (n <= firstItem) {
+        if (n <= firstItem) {// 在第一个可视条目之前
             mRv.scrollToPosition(n);
-        } else if (n <= lastItem) {
-            Log.e("chris", "pos---->" + String.valueOf(n)+"VS"+firstItem);
+        } else if (n <= lastItem) {// 在第一个可视条目之后
+            Log.e("chris", "pos---->" + String.valueOf(n)+"--VS--"+firstItem);
             int top = mRv.getChildAt(n - firstItem).getTop();
             Log.e("chris", "top---->" + String.valueOf(top));
-            mRv.scrollBy(0, top);
-        } else {
-            mRv.scrollToPosition(n);
+            mRv.scrollBy(0, top);// 移动到底n个位置，把他置为第一个可视条目
+        } else {// 在最后一个可视条目之后
+            mRv.scrollToPosition(n);// 直接 Recycle 移动到当前的条目
             move = true;
         }
     }
