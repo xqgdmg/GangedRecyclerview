@@ -147,10 +147,9 @@ public class SortDetailFragment extends BaseFragment<SortDetailPresenter, String
         Log.e("chris", "last--->" + String.valueOf(lastItem));
         if (n <= firstItem) {// 在第一个可视条目之前
             mRv.scrollToPosition(n);// 直接 Recycle 移动到当前的条目
-        } else if (n <= lastItem) {// 在第一个可视条目和最后一个可视条目之之间，这是唯一特殊的点
-            Log.e("chris", "pos---->" + String.valueOf(n)+"--VS--"+firstItem);
+        } else if (n <= lastItem) {
+            // 在第一个可视条目和最后一个可视条目之之间，这是唯一特殊的点，只要计算出 top 就可以了
             int top = mRv.getChildAt(n - firstItem).getTop();
-            Log.e("chris", "top---->" + String.valueOf(top));
             mRv.scrollBy(0, top);// 移动到底n个位置，把他置为第一个可视条目（RecyclerView 方法 参数是坐标）
         } else {// 在最后一个可视条目之后
             mRv.scrollToPosition(n);// 直接 Recycle 移动到当前的条目
@@ -170,10 +169,8 @@ public class SortDetailFragment extends BaseFragment<SortDetailPresenter, String
             if (move && newState == RecyclerView.SCROLL_STATE_IDLE) {
                 move = false;
                 int n = mIndex - mManager.findFirstVisibleItemPosition();
-                Log.e("chris","n---->" +  String.valueOf(n));
                 if (0 <= n && n < mRv.getChildCount()) {
                     int top = mRv.getChildAt(n).getTop();
-                    Log.e("chris","top--->" + String.valueOf(top));
                     mRv.smoothScrollBy(0, top);
                 }
             }
