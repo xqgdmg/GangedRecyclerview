@@ -71,9 +71,10 @@ public class MainActivity extends AppCompatActivity implements CheckListener {
     private void setChecked(int position, boolean isLeft) {
         Log.e("chris", "position==" + String.valueOf(position));
         if (isLeft) {
-            //此处的位置需要根据每个分类的集合来进行计算
+            //设置分类的选中状态
             mSortAdapter.setCheckedPosition(position);
-            mSortDetailFragment.setData(position * 10 + position);// Fragment 移动条目的位置
+            // Fragment 移动条目的位置
+            mSortDetailFragment.setData(position * 10 + position);
         } else {
             ItemHeaderDecoration.setCurrentTag(String.valueOf(targetPosition));
             if (isMoved) {

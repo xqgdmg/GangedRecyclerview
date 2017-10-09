@@ -19,6 +19,7 @@ import com.fatchao.gangedrecyclerview.R;
  * email fat_chao@163.com.
  *
  * 处理 加载中，空视图，加载错误的视图
+ * 和 loadingPager 是一个意思
  */
 
 public abstract class FlexibleLayout extends LinearLayout {
