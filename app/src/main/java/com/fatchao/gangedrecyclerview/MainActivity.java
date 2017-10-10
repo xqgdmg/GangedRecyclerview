@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements CheckListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024 / 1024);
+        Log.e("chris","maxMemory=" + maxMemory + "M"); // 32M - 400M 左右
         mContext = this;
     }
 
